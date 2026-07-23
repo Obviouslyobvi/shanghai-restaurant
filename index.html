@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShangHai 上海小馆 · Chinese Kitchen on Milpas Street, Santa Barbara</title>
+<meta name="description" content="ShangHai 上海小馆 on N Milpas Street, Santa Barbara. Shanghai and Sichuan cooking, made to order, with one of the largest vegetarian menus in town. Order direct for pickup or delivery.">
+<meta property="og:title" content="ShangHai 上海小馆 · Santa Barbara">
+<meta property="og:description" content="Shanghai and Sichuan cooking on Milpas Street. Made to order. Big vegetarian menu. Order direct.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0C1310;
+  --ink-2:#111C17;
+  --panel:#16241E;
+  --jade:#2F7F66;
+  --jade-lt:#A9CBBC;
+  --cinnabar:#C4372B;
+  --brass:#C39B55;
+  --brass-dim:#8A6E3C;
+  --paper:#F3EFE4;
+  --paper-dim:#D8D2C2;
+  --r:2px;
+  --maxw:1180px;
+  --pad:clamp(20px,5vw,64px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.cn{font-family:'Noto Serif SC',serif}
+.disp{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;letter-spacing:-.015em;line-height:1.03}
+.eyebrow{
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  font-weight:600;color:var(--brass);
+}
+
+/* ---------- seal mark ---------- */
+.seal{
+  width:38px;height:38px;flex:0 0 38px;border-radius:3px;
+  background:var(--cinnabar);color:#fff;
+  display:grid;place-items:center;
+  font-family:'Noto Serif SC',serif;font-weight:900;font-size:22px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);
+}
+
+/* ---------- vertical banner spine (signature) ---------- */
+.spine{
+  position:fixed;left:0;top:0;bottom:0;width:56px;z-index:60;
+  background:linear-gradient(180deg,#0A100D,#111C17);
+  border-right:1px solid rgba(195,155,85,.28);
+  display:none;flex-direction:column;align-items:center;justify-content:space-between;
+  padding:18px 0;
+}
+.spine .rope{width:1px;flex:1;background:linear-gradient(180deg,transparent,var(--brass-dim),transparent);margin:14px 0}
+.spine .vert{
+  writing-mode:vertical-rl;font-family:'Noto Serif SC',serif;font-weight:600;
+  font-size:20px;letter-spacing:.42em;color:var(--brass);
+}
+.spine .yr{writing-mode:vertical-rl;font-size:10px;letter-spacing:.3em;color:var(--brass-dim)}
+@media (min-width:1080px){
+  .spine{display:flex}
+  body{padding-left:56px}
+}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(12,19,16,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(195,155,85,.22);
+}
+.bar .row{display:flex;align-items:center;gap:16px;height:70px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto}
+.brand b{font-family:'Bodoni Moda',serif;font-size:19px;font-weight:600;letter-spacing:.01em;display:block;line-height:1.1}
+.brand span{font-family:'Noto Serif SC',serif;font-size:11.5px;letter-spacing:.3em;color:var(--brass)}
+.nav{display:none;gap:26px;margin-left:auto;align-items:center}
+.nav a{text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--paper-dim)}
+.nav a:hover{color:var(--brass)}
+@media(min-width:900px){.nav{display:flex}}
+.bar-cta{margin-left:auto;display:flex;align-items:center;gap:10px}
+@media(min-width:900px){.bar-cta{margin-left:26px}}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 11px;border:1px solid rgba(195,155,85,.4);border-radius:100px;color:var(--paper-dim);
+  white-space:nowrap;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:#5c5c5c}
+.dot.on{background:#41C08A;box-shadow:0 0 0 4px rgba(65,192,138,.15)}
+.dot.off{background:var(--cinnabar)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 22px;border-radius:var(--r);text-decoration:none;
+  font-weight:700;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid transparent;cursor:pointer;transition:.18s ease;
+}
+.btn-red{background:var(--cinnabar);color:#fff}
+.btn-red:hover{background:#a92c22}
+.btn-brass{background:transparent;color:var(--brass);border-color:var(--brass)}
+.btn-brass:hover{background:var(--brass);color:var(--ink)}
+.btn-sm{padding:9px 15px;font-size:11.5px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--ink-2)}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.42;filter:saturate(.85) contrast(1.05)}
+.hero-img::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(10,16,13,.96) 0%,rgba(10,16,13,.82) 45%,rgba(10,16,13,.35) 100%);
+}
+.ghost{
+  position:absolute;right:-2vw;bottom:-6vh;z-index:1;
+  font-family:'Noto Serif SC',serif;font-weight:900;
+  font-size:clamp(180px,30vw,460px);line-height:.8;
+  color:transparent;-webkit-text-stroke:1px rgba(195,155,85,.16);
+  pointer-events:none;user-select:none;
+}
+.hero-in{position:relative;z-index:2;padding:clamp(72px,13vh,132px) 0 clamp(60px,10vh,104px)}
+.hero h1{
+  font-family:'Bodoni Moda',serif;font-weight:600;
+  font-size:clamp(40px,7.2vw,80px);line-height:1.02;letter-spacing:-.02em;
+  margin:18px 0 0;max-width:15ch;
+}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero p.lede{font-size:clamp(16px,2vw,19px);color:var(--paper-dim);max-width:46ch;margin:22px 0 0;font-weight:300}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-facts{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:44px;
+  border-top:1px solid rgba(195,155,85,.25);
+}
+.fact{padding:18px 30px 0 0;margin-right:30px;border-right:1px solid rgba(195,155,85,.16)}
+.fact:last-child{border-right:0}
+.fact b{display:block;font-family:'Bodoni Moda',serif;font-size:26px;font-weight:600}
+.fact span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-dim)}
+
+/* ---------- section frame ---------- */
+.sec{padding:clamp(64px,9vw,110px) 0;position:relative}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.sec-head h2{font-family:'Bodoni Moda',serif;font-weight:600;font-size:clamp(28px,4.4vw,46px);margin:10px 0 0;letter-spacing:-.015em}
+.sec-head .cnlabel{font-family:'Noto Serif SC',serif;font-size:13px;letter-spacing:.5em;color:var(--brass);}
+.rule{height:1px;background:linear-gradient(90deg,var(--brass-dim),transparent);margin-bottom:0}
+
+/* ---------- ordering hub ---------- */
+#order{background:var(--ink-2);border-top:1px solid rgba(195,155,85,.18);border-bottom:1px solid rgba(195,155,85,.18)}
+.order-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:760px){.order-grid{grid-template-columns:1.35fr 1fr 1fr}}
+.ocard{
+  display:flex;flex-direction:column;justify-content:space-between;gap:16px;
+  padding:26px;border:1px solid rgba(195,155,85,.26);background:var(--panel);
+  text-decoration:none;border-radius:var(--r);transition:.18s ease;min-height:158px;
+}
+.ocard:hover{border-color:var(--brass);transform:translateY(-2px)}
+.ocard .tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.ocard h3{font-family:'Bodoni Moda',serif;font-size:23px;font-weight:600;margin:9px 0 6px}
+.ocard p{margin:0;font-size:13.5px;color:var(--paper-dim);line-height:1.55}
+.ocard .go{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--paper)}
+.ocard.primary{background:linear-gradient(150deg,#1B2E26,#14231D);border-color:var(--brass)}
+.ocard.primary h3{font-size:29px}
+.apps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:760px){.apps{grid-template-columns:1fr;gap:14px}}
+.app{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:15px 18px;border:1px solid rgba(195,155,85,.22);background:var(--panel);
+  text-decoration:none;border-radius:var(--r);font-size:14px;font-weight:600;transition:.18s;
+}
+.app:hover{border-color:var(--brass);color:var(--brass)}
+.app small{font-size:11px;font-weight:500;color:var(--brass-dim);letter-spacing:.08em}
+
+/* ---------- signature dishes ---------- */
+.dish-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.dish{border:1px solid rgba(195,155,85,.2);background:var(--panel);border-radius:var(--r);overflow:hidden;transition:.2s}
+.dish:hover{border-color:var(--brass)}
+.dish .ph{aspect-ratio:4/3;overflow:hidden;background:#0A100D}
+.dish .ph img{width:100%;height:100%;object-fit:cover;transition:.5s ease}
+.dish:hover .ph img{transform:scale(1.04)}
+.dish .tx{padding:18px 20px 22px}
+.dish .zh{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--brass);letter-spacing:.14em}
+.dish h3{font-family:'Bodoni Moda',serif;font-size:20px;font-weight:600;margin:4px 0 8px;line-height:1.2}
+.dish p{margin:0 0 12px;font-size:13px;color:var(--paper-dim);line-height:1.55}
+.dish .pr{font-family:'Bodoni Moda',serif;font-size:17px;color:var(--paper)}
+
+/* ---------- menu ---------- */
+#menu{background:var(--paper);color:#14231D}
+#menu .sec-head h2{color:#101A15}
+#menu .sec-head .cnlabel{color:#8A6E3C}
+.mtools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px}
+.search{
+  flex:1 1 230px;min-width:0;display:flex;align-items:center;gap:9px;
+  border:1px solid rgba(20,35,29,.28);background:#fff;padding:11px 15px;border-radius:var(--r);
+}
+.search input{border:0;outline:0;font:inherit;font-size:14.5px;width:100%;background:transparent;color:#14231D}
+.chip{
+  border:1px solid rgba(20,35,29,.3);background:transparent;color:#25382F;
+  padding:10px 15px;border-radius:100px;font:inherit;font-size:12.5px;font-weight:700;
+  letter-spacing:.06em;cursor:pointer;transition:.15s;white-space:nowrap;
+}
+.chip[aria-pressed="true"]{background:#14231D;color:var(--paper);border-color:#14231D}
+.chip.veg[aria-pressed="true"]{background:var(--jade);border-color:var(--jade);color:#fff}
+.chip.spy[aria-pressed="true"]{background:var(--cinnabar);border-color:var(--cinnabar);color:#fff}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:16px 0 18px;margin:0 calc(var(--pad)*-1);padding-left:var(--pad);padding-right:var(--pad);scrollbar-width:thin}
+.tab{
+  border:0;background:transparent;color:#4A5C54;font:inherit;font-size:13px;font-weight:700;
+  letter-spacing:.05em;padding:8px 14px;border-radius:100px;cursor:pointer;white-space:nowrap;transition:.15s;
+}
+.tab:hover{color:#101A15}
+.tab[aria-selected="true"]{background:#14231D;color:var(--paper)}
+.disclaim{font-size:12px;color:#5D6D65;margin:0 0 22px;line-height:1.5}
+.mgroup{margin-bottom:44px;scroll-margin-top:96px}
+.mgroup h3{
+  font-family:'Bodoni Moda',serif;font-size:26px;font-weight:600;margin:0 0 4px;color:#101A15;
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+}
+.mgroup h3 i{font-family:'Noto Serif SC',serif;font-style:normal;font-size:14px;letter-spacing:.3em;color:#8A6E3C}
+.mgroup .hr{height:1px;background:rgba(20,35,29,.2);margin:14px 0 6px}
+.mlist{display:grid;gap:0;grid-template-columns:1fr}
+@media(min-width:820px){.mlist{grid-template-columns:1fr 1fr;column-gap:52px}}
+.mi{display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px dotted rgba(20,35,29,.22)}
+.mi .nm{font-weight:600;font-size:15px;color:#101A15;line-height:1.35}
+.mi .ds{display:block;font-weight:400;font-size:12.5px;color:#5D6D65;line-height:1.45;margin-top:3px}
+.mi .leader{flex:1;border-bottom:1px dotted rgba(20,35,29,.28);transform:translateY(-4px);min-width:14px}
+.mi .pp{font-family:'Bodoni Moda',serif;font-size:16px;color:#101A15;white-space:nowrap}
+.mk{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;padding:2px 6px;border-radius:2px;vertical-align:middle;margin-left:7px;transform:translateY(-1px)}
+.mk.v{background:rgba(47,127,102,.14);color:#1F6A53}
+.mk.s{background:rgba(196,55,43,.13);color:#A92C22}
+.empty{padding:40px 0;color:#5D6D65;font-size:15px}
+
+/* ---------- story ---------- */
+.split{display:grid;gap:44px;grid-template-columns:1fr;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1.05fr .95fr;gap:64px}}
+.story p{color:var(--paper-dim);font-size:16.5px;font-weight:300;line-height:1.8}
+.story p strong{color:var(--paper);font-weight:600}
+.quotefig{border-left:2px solid var(--brass);padding-left:22px;margin:30px 0 0}
+.quotefig b{font-family:'Bodoni Moda',serif;font-size:21px;font-weight:600;display:block;line-height:1.35}
+.quotefig span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-dim);display:block;margin-top:9px}
+.photostrip{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.photostrip img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid rgba(195,155,85,.22)}
+.photostrip .tall{grid-column:span 2;aspect-ratio:16/9}
+
+/* ---------- visit ---------- */
+#visit{background:var(--ink-2);border-top:1px solid rgba(195,155,85,.18)}
+.visit-grid{display:grid;gap:36px;grid-template-columns:1fr}
+@media(min-width:900px){.visit-grid{grid-template-columns:1fr 1.15fr;gap:56px}}
+.hours{width:100%;border-collapse:collapse;margin-top:6px}
+.hours td{padding:11px 0;border-bottom:1px solid rgba(195,155,85,.16);font-size:14.5px;vertical-align:top}
+.hours td:first-child{color:var(--brass);width:38%;font-weight:600;letter-spacing:.04em}
+.hours td:last-child{text-align:right;color:var(--paper-dim);font-variant-numeric:tabular-nums}
+.hours tr.today td{color:var(--paper)}
+.hours tr.today td:first-child{color:var(--brass)}
+.hours tr.today{background:rgba(195,155,85,.07)}
+.hours tr.shut td:last-child{color:var(--cinnabar)}
+.addr{margin-top:28px;font-size:15.5px;line-height:1.85;color:var(--paper-dim)}
+.addr a{color:var(--brass);text-decoration:none;font-weight:600}
+.addr a:hover{text-decoration:underline}
+.mapbox{border:1px solid rgba(195,155,85,.28);border-radius:var(--r);overflow:hidden;min-height:340px;height:100%}
+.mapbox iframe{width:100%;height:100%;min-height:340px;border:0;filter:grayscale(.35) contrast(1.05)}
+
+/* ---------- footer ---------- */
+footer{background:#080D0B;border-top:1px solid rgba(195,155,85,.22);padding:52px 0 40px}
+.foot{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+.foot a{color:var(--paper-dim);text-decoration:none;font-size:13.5px;display:block;padding:3px 0}
+.foot a:hover{color:var(--brass)}
+.foot h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin:0 0 12px;font-weight:700}
+.legal{margin-top:36px;padding-top:22px;border-top:1px solid rgba(195,155,85,.14);font-size:12px;color:#6E7A73;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+
+/* ---------- sticky mobile order bar ---------- */
+.mobar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:8px;padding:10px 12px;
+  background:rgba(8,13,11,.95);backdrop-filter:blur(12px);border-top:1px solid rgba(195,155,85,.28);
+}
+.mobar .btn{flex:1;padding:14px 10px;font-size:12px}
+@media(min-width:760px){.mobar{display:none}}
+@media(max-width:759px){footer{padding-bottom:96px}}
+</style>
+</head>
+<body>
+
+<div class="spine" aria-hidden="true">
+  <div class="seal">沪</div>
+  <div class="rope"></div>
+  <div class="vert">上海小馆</div>
+  <div class="rope"></div>
+  <div class="yr">MILPAS ST</div>
+</div>
+
+<header class="bar">
+  <div class="wrap row">
+    <a class="brand" href="#top">
+      <span class="seal">沪</span>
+      <span>
+        <b>ShangHai</b>
+        <span class="cn">上海小馆</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#order">Order</a>
+      <a href="#signature">Signatures</a>
+      <a href="#menu">Menu</a>
+      <a href="#story">Our kitchen</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="bar-cta">
+      <span class="pill" id="statusPill"><span class="dot" id="statusDot"></span><span id="statusText">Checking hours</span></span>
+      <a class="btn btn-red btn-sm" href="https://shanghaisbca.udinner.com/" target="_blank" rel="noopener">Order</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero-img"><img src="img/hero.webp" alt="Dishes served at ShangHai on Milpas Street"></div>
+  <div class="ghost cn">上海</div>
+  <div class="wrap hero-in">
+    <p class="eyebrow">830 N Milpas Street · Santa Barbara</p>
+    <h1 class="disp">The wok doesn't rest.<br><em>Neither do we.</em></h1>
+    <p class="lede">Shanghai classics, Sichuan heat, and one of the largest vegetarian menus in Santa Barbara. Everything made to order, the way it has been on Milpas for years.</p>
+    <div class="hero-actions">
+      <a class="btn btn-red" href="https://shanghaisbca.udinner.com/" target="_blank" rel="noopener">Order pickup &amp; delivery</a>
+      <a class="btn btn-brass" href="tel:+18059627833">Call (805) 962-7833</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><b>4.5</b><span>Google · 269 reviews</span></div>
+      <div class="fact"><b>4.8</b><span>Restaurant Guru · 614</span></div>
+      <div class="fact"><b>60+</b><span>Vegetarian dishes</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="order">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="cnlabel">点餐</span>
+        <h2>Order from the kitchen</h2>
+      </div>
+      <p style="max-width:34ch;color:var(--paper-dim);font-size:14px;margin:0">Ordering direct costs you the same and keeps more of it in our kitchen. The apps are here too if that's easier.</p>
+    </div>
+    <div class="rule" style="margin-bottom:28px"></div>
+    <div class="order-grid">
+      <a class="ocard primary" href="https://shanghaisbca.udinner.com/" target="_blank" rel="noopener">
+        <div>
+          <span class="tag">Best for us · Same price for you</span>
+          <h3>Order direct</h3>
+          <p>Pickup and delivery through our own ordering page. No app commission taken out of the ticket.</p>
+        </div>
+        <span class="go">Start an order →</span>
+      </a>
+      <div class="apps">
+        <a class="app" href="https://www.ubereats.com/store/shang-hai-santa-barbara/edS1xgrwXSumWgOcjwGqRA" target="_blank" rel="noopener">Uber Eats <small>DELIVERY</small></a>
+        <a class="app" href="https://www.doordash.com/en-US/store/shang-hai-santa-barbara-24934810/" target="_blank" rel="noopener">DoorDash <small>DELIVERY</small></a>
+        <a class="app" href="https://www.grubhub.com/delivery/ca-santa_barbara-milpas" target="_blank" rel="noopener">Grubhub <small>DELIVERY</small></a>
+        <a class="app" href="https://postmates.com/store/shang-hai-santa-barbara/edS1xgrwXSumWgOcjwGqRA" target="_blank" rel="noopener">Postmates <small>DELIVERY</small></a>
+      </div>
+      <a class="ocard" href="tel:+18059627833">
+        <div>
+          <span class="tag">Fastest</span>
+          <h3>Call it in</h3>
+          <p>Large orders, special requests, or anything you want cooked a particular way. Ask, we'll do it.</p>
+        </div>
+        <span class="go">(805) 962-7833 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="signature">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="cnlabel">招牌菜</span>
+        <h2>What we're known for</h2>
+      </div>
+    </div>
+    <div class="rule" style="margin-bottom:28px"></div>
+    <div class="dish-grid">
+      <article class="dish">
+        <div class="ph"><img src="img/d2.webp" alt="Pork soup dumplings" loading="lazy"></div>
+        <div class="tx">
+          <span class="zh">小笼汤包</span>
+          <h3>Pork Soup Dumplings</h3>
+          <p>Eight to an order, folded and steamed to order. Bite the corner first, then drink.</p>
+          <span class="pr">$14.99</span>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="ph"><img src="img/d4.webp" alt="Grilled whole fish" loading="lazy"></div>
+        <div class="tx">
+          <span class="zh">香辣烤全鱼</span>
+          <h3>Grilled Whole Fish</h3>
+          <p>A whole fish over chili and cumin. Built for a table, not a single plate.</p>
+          <span class="pr">$47.99</span>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="ph"><img src="img/d1.webp" alt="Wor wonton soup" loading="lazy"></div>
+        <div class="tx">
+          <span class="zh">云吞汤</span>
+          <h3>Wor Wonton Soup</h3>
+          <p>Chicken, shrimp, egg and vegetables in clear broth. The order people repeat weekly.</p>
+          <span class="pr">$11.00</span>
+        </div>
+      </article>
+      <article class="dish">
+        <div class="ph"><img src="img/d3.webp" alt="Vegetable chow mein" loading="lazy"></div>
+        <div class="tx">
+          <span class="zh">素炒面</span>
+          <h3>Vegetable Chow Mein</h3>
+          <p>One of sixty-plus meatless dishes. Vegetarians order here without negotiating.</p>
+          <span class="pr">$15.50</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="cnlabel">菜单</span>
+        <h2>The full menu</h2>
+      </div>
+      <div class="mtools">
+        <label class="search">
+          <span aria-hidden="true" style="color:#8A6E3C">⌕</span>
+          <input id="q" type="search" placeholder="Search 170+ dishes…" aria-label="Search the menu">
+        </label>
+        <button class="chip veg" id="fVeg" aria-pressed="false">Vegetarian</button>
+        <button class="chip spy" id="fSpy" aria-pressed="false">Spicy</button>
+      </div>
+    </div>
+    <div class="tabs" id="tabs" role="tablist" aria-label="Menu sections"></div>
+    <p class="disclaim" id="disclaim">Dishes and prices shown reflect our current online ordering listings. Prices at the counter may differ — call to confirm. Lunch is served 11:30–2:30.</p>
+    <div id="menuOut"></div>
+  </div>
+</section>
+
+<section class="sec" id="story">
+  <div class="wrap split">
+    <div class="story">
+      <span class="cnlabel">厨房</span>
+      <h2 class="disp" style="font-size:clamp(28px,4.4vw,46px);margin:10px 0 22px">A small Shanghai kitchen<br>on a working street</h2>
+      <p>Milpas Street feeds people who are on their way somewhere. That shapes how we cook: everything goes in the wok when you order it, portions are built for leftovers, and the price stays where a neighborhood can reach it.</p>
+      <p>The menu runs two directions at once. <strong>Shanghai and Sichuan</strong> on one side — water-boiled fish, mapo tofu in the clay pot, twice-cooked pork belly, soup dumplings. <strong>American Chinese classics</strong> on the other — chow mein, mu shu, egg foo young, done properly.</p>
+      <p>And then the part people tell their friends about: <strong>more than sixty vegetarian dishes</strong>, not a single asterisk on a meat menu. Tofu six ways, baked tofu six more, greens, eggplant, snow peas, and every sauce we make available without meat.</p>
+      <div class="quotefig">
+        <b>Rated 4.5 on Google, 4.8 on Restaurant Guru, across nearly 900 reviews.</b>
+        <span>Ratings current as of July 2026</span>
+      </div>
+    </div>
+    <div class="photostrip">
+      <img class="tall" src="img/hero.webp" alt="Food from the ShangHai kitchen" loading="lazy">
+      <img src="img/d3.webp" alt="Noodles from the ShangHai kitchen" loading="lazy">
+      <img src="img/d2.webp" alt="Dumplings from the ShangHai kitchen" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="cnlabel">来店</span>
+        <h2>Find us</h2>
+      </div>
+    </div>
+    <div class="rule" style="margin-bottom:34px"></div>
+    <div class="visit-grid">
+      <div>
+        <p class="eyebrow">Hours · closed Tuesdays</p>
+        <table class="hours" id="hoursTable"></table>
+        <div class="addr">
+          <strong style="color:var(--paper)">ShangHai 上海小馆</strong><br>
+          830 N Milpas Street<br>
+          Santa Barbara, CA 93103<br>
+          <a href="tel:+18059627833">(805) 962-7833</a><br>
+          <a href="https://maps.google.com/?q=830+N+Milpas+St,+Santa+Barbara,+CA+93103" target="_blank" rel="noopener">Get directions →</a>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px">
+          <a class="btn btn-red" href="https://shanghaisbca.udinner.com/" target="_blank" rel="noopener">Order online</a>
+          <a class="btn btn-brass" href="tel:+18059627833">Call us</a>
+        </div>
+      </div>
+      <div class="mapbox">
+        <iframe title="Map to ShangHai Restaurant, 830 N Milpas Street, Santa Barbara" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=830%20N%20Milpas%20St,%20Santa%20Barbara,%20CA%2093103&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div style="max-width:26ch">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:14px">
+          <span class="seal">沪</span>
+          <span>
+            <b class="disp" style="font-size:19px;display:block">ShangHai</b>
+            <span class="cn" style="font-size:11.5px;letter-spacing:.3em;color:var(--brass)">上海小馆</span>
+          </span>
+        </div>
+        <p style="font-size:13.5px;color:#6E7A73;line-height:1.7;margin:0">830 N Milpas Street, Santa Barbara, CA 93103<br>(805) 962-7833</p>
+      </div>
+      <div>
+        <h4>Order</h4>
+        <a href="https://shanghaisbca.udinner.com/" target="_blank" rel="noopener">Order direct</a>
+        <a href="https://www.ubereats.com/store/shang-hai-santa-barbara/edS1xgrwXSumWgOcjwGqRA" target="_blank" rel="noopener">Uber Eats</a>
+        <a href="https://www.doordash.com/en-US/store/shang-hai-santa-barbara-24934810/" target="_blank" rel="noopener">DoorDash</a>
+        <a href="https://www.grubhub.com/delivery/ca-santa_barbara-milpas" target="_blank" rel="noopener">Grubhub</a>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <a href="#signature">Signatures</a>
+        <a href="#menu">Full menu</a>
+        <a href="#menu">Vegetarian</a>
+        <a href="#visit">Hours &amp; directions</a>
+      </div>
+      <div>
+        <h4>Reviews</h4>
+        <a href="https://www.yelp.com/biz/shang-hai-santa-barbara-2" target="_blank" rel="noopener">Yelp</a>
+        <a href="https://maps.google.com/?q=830+N+Milpas+St,+Santa+Barbara,+CA+93103" target="_blank" rel="noopener">Google</a>
+        <a href="https://restaurantguru.com/Shanghai-Chinese-Restaurant-Santa-Barbara" target="_blank" rel="noopener">Restaurant Guru</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr"></span> ShangHai Restaurant · Santa Barbara, California</span>
+      <span>Closed Tuesdays</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobar">
+  <a class="btn btn-red" href="https://shanghaisbca.udinner.com/" target="_blank" rel="noopener">Order online</a>
+  <a class="btn btn-brass" href="tel:+18059627833">Call</a>
+</div>
+
+<script>
+const MENU = [{"id":"chefs","name":"Chef's Specialties","cn":"招牌菜","items":[{"n":"Salt & Pepper Crispy Chicken","p":18.0,"d":"Crispy chicken seasoned with salt and pepper.","v":false,"s":false},{"n":"Noodle Soup with Protein","p":16.99,"d":"Savoury noodles served with your choice of protein.","v":false,"s":false},{"n":"Noodle Soup with Shredded Pork & Potherb Mustard","p":16.5,"d":"Tender shredded pork and potherb mustard in a savory noodle soup.","v":false,"s":false},{"n":"Tofu & Eggplant with Basil in Hot Pot","p":16.5,"d":"Tofu and eggplant in a flavorful basil hot pot.","v":true,"s":false},{"n":"Tofu with Curry & Coconut Sauce in Hot Pot","p":16.5,"d":"Silky tofu in a rich and creamy curry coconut sauce.","v":true,"s":false},{"n":"Steamed Fish Fillet","p":19.99,"d":"Delicate fish fillet, steamed to perfection.","v":false,"s":false},{"n":"Fish Fillet Shanghai Style","p":19.99,"d":"Delicate fish fillet in a savory Shanghai-inspired sauce.","v":false,"s":false},{"n":"Sweet and Pungent Shrimp","p":22.5,"d":"Light batter shrimp sautéed with chef's specialty flavored sauce.","v":false,"s":false},{"n":"Orange Flavor Shrimp","p":22.5,"d":"Succulent shrimp infused with a hint of orange flavor.","v":false,"s":false},{"n":"Noodle Soup with Preserved Vegetable & Shredded Pork","p":16.99,"d":"Savoury noodle soup with preserved vegetable and shredded pork.","v":false,"s":false},{"n":"Fish Fillet with Black Bean Sauce","p":19.99,"d":"Flaky fish fillet served with a rich black bean sauce.","v":false,"s":false},{"n":"Fish Fillet with Chili Bean Sauce","p":19.99,"d":"Flaky fish fillet smothered in a spicy chili bean sauce.","v":false,"s":true},{"n":"Salt & Pepper Shrimp","p":22.5,"d":"Succulent shrimp seasoned with salt and pepper.","v":false,"s":false},{"n":"Chinese Style Boiled Beef (水煮牛)","p":25.99,"d":"Spicy.","v":false,"s":true},{"n":"Sichuan Boiled Fish with Pickled Greens (古法酸菜魚)","p":24.0,"d":"Spicy.","v":false,"s":true},{"n":"Baked Tofu with Pork (香干肉絲)","p":19.99,"d":"Baked tofu paired with shredded pork in a savory sauce.","v":false,"s":false},{"n":"Chinese Style Spicy Chicken (辣子雞丁)","p":18.99,"d":"Authentic spicy.","v":false,"s":true},{"n":"Mapo Tofu in Hot Pot (Meat) (砂鍋麻婆豆腐(肉))","p":18.99,"d":"Spicy.","v":false,"s":true},{"n":"Chinese Style Boiled Fish (水煮魚)","p":19.99,"d":"Spicy.","v":false,"s":true},{"n":"Mao Xue Wang (毛血旺)","p":30.99,"d":"Spicy.","v":false,"s":true},{"n":"Chinese Style Boiled Two Flavor (水煮兩樣)","p":24.99,"d":"Spicy.","v":false,"s":true},{"n":"香辣烤全鱼 Grilled Whole Fish","p":47.99,"d":"麻辣鲜香鱼肉鲜嫩","v":false,"s":true},{"n":"麻辣香锅","p":36.99,"d":"","v":false,"s":true},{"n":"野山椒藕带牛肉","p":28.99,"d":"","v":false,"s":false},{"n":"口水鸡","p":20.99,"d":"","v":false,"s":false},{"n":"夫妻肺片","p":22.99,"d":"","v":false,"s":false}]},{"id":"dimsum","name":"Dumplings & Small Plates","cn":"点心","items":[{"n":"Steamed pork Bao(4 p)","p":13.99,"d":"Soft, steamed buns filled with savory pork, perfect as a light appetizer.","v":false,"s":false},{"n":"Crispy pork Bao (4PS)","p":13.99,"d":"Crispy pork in soft bao buns, offering a delightful contrast of textures in every bite.","v":false,"s":false},{"n":"Steamed Veggies Bao(4p)","p":13.99,"d":"Soft, steamed buns filled with fresh vegetables, offering a light and savory start to your meal.","v":true,"s":false},{"n":"Egg Roll (4 pcs) Meatless","p":8.5,"d":"Crispy rolls filled with vegetables, served in a set of four.","v":true,"s":false},{"n":"Cream Cheese Fried Wonton (6 pcs)","p":9.0,"d":"Crispy wontons filled with a tangy cream cheese filling.","v":false,"s":false},{"n":"Potsticker (6 pcs)","p":10.0,"d":"Pan-fried dumplings with a savory filling, crispy on the bottom and tender on top. Six pieces.","v":false,"s":false},{"n":"Chicken Potstickers (6 pcs)","p":10.0,"d":"Crispy dumplings filled with chicken.","v":false,"s":false},{"n":"Fried Soybean Chicken (4 pcs)","p":10.0,"d":"Crispy fried soybean bites served in a set of 4 pieces.","v":false,"s":false},{"n":"Fried Shrimp (4 pcs)","p":9.0,"d":"Succulent shrimp served in a crispy exterior.","v":false,"s":false},{"n":"Fried Wonton (10 pcs) Meatless","p":8.5,"d":"Crispy wontons filled with savory meatless filling, served in a set of 10.","v":true,"s":false},{"n":"Bar-B-Q Spareribs (4 pcs)","p":13.0,"d":"Tender pork ribs smothered in a sweet and tangy BBQ sauce.","v":false,"s":false},{"n":"Fried Tofu","p":9.0,"d":"Crispy exterior, soft interior tofu bites.","v":true,"s":false},{"n":"Crispy Veggies Bao(4p)","p":13.99,"d":"Delight in soft bao filled with crispy veggies, a perfect start to your meal.","v":true,"s":false},{"n":"Pork Soup dumplings (小笼汤包8Pc)","p":14.99,"d":"Delicate dumplings filled with savory pork, offering a burst of flavorful broth in every bite.","v":false,"s":false}]},{"id":"soups","name":"Soups","cn":"汤羹","items":[{"n":"Wor Wonton Soup","p":11.0,"d":"Delicate wontons in a savory broth.","v":false,"s":false},{"n":"Hot & Sour Soup","p":11.0,"d":"Savory soup with a balance of spicy and tangy flavors.","v":false,"s":true},{"n":"Com Egg Drop Soup","p":11.0,"d":"Egg drop soup with a delicate balance of flavors.","v":false,"s":false},{"n":"Wonton Soup (Meatless)","p":11.0,"d":"Delicate dumplings filled with vegetables in a savory broth.","v":true,"s":false},{"n":"Vegetables Soup","p":11.0,"d":"Hearty blend of vegetables in a savory broth.","v":true,"s":false},{"n":"Tofu Egg Drop Soup","p":11.0,"d":"Silky soup with tofu and egg drops.","v":true,"s":false},{"n":"Sizzling Rice Soup","p":11.0,"d":"Crispy rice in hot broth that sizzles on contact.","v":false,"s":false},{"n":"Seafood Hot & Sour Soup","p":12.0,"d":"Savoury seafood soup with a tangy twist.","v":false,"s":true},{"n":"Tofu Soup","p":11.0,"d":"Silky tofu in a savory broth.","v":true,"s":false}]},{"id":"mushu","name":"Mu Shu","cn":"木须","items":[{"n":"Mu Shu Pork","p":17.99,"d":"Tender pork served with vegetables and wrapped in a thin pancake.","v":false,"s":false},{"n":"Mu Shu Chicken","p":17.99,"d":"Tender chicken wrapped in a thin pancake with vegetables.","v":false,"s":false},{"n":"Mu Shu Beef","p":19.99,"d":"Tender beef strips served with vegetables and wrapped in a thin pancake.","v":false,"s":false},{"n":"Extra Pan Cake","p":1.0,"d":"Thin, delicate pancake served with Mu Shu dishes.","v":false,"s":false},{"n":"Mu Shu Vegetables","p":17.99,"d":"Stir-fried vegetables served with pancakes and hoisin sauce.","v":true,"s":false},{"n":"Mu Shu Three delight","p":19.99,"d":"Chicken, beef, and shrimp with vegetables, wrapped in a thin pancake.","v":false,"s":false},{"n":"Mu Shu Shrimp","p":21.99,"d":"Shrimp and vegetables wrapped in a thin pancake.","v":false,"s":false}]},{"id":"veg","name":"Vegetables & Tofu","cn":"素菜豆腐","items":[{"n":"Vegetable Chow Mein","p":15.5,"d":"Stir-fried vegetables served over noodles.","v":true,"s":false},{"n":"Sauté Green Beans","p":16.5,"d":"Fresh green beans sautéed to perfection.","v":true,"s":false},{"n":"Vegetable Chow Fun","p":16.5,"d":"Stir-fried vegetables served with fun noodles.","v":true,"s":false},{"n":"Baked Tofu with Broccoli","p":17.99,"d":"Tofu and broccoli baked to perfection.","v":true,"s":false},{"n":"Sauté Chinese Green","p":17.5,"d":"Stir-fried Chinese green vegetables.","v":true,"s":false},{"n":"Hot Szechwan Eggplant","p":16.5,"d":"Spicy.","v":true,"s":true},{"n":"Mushroom Egg Foo Young","p":16.5,"d":"Omelette-style dish with mushrooms and eggs.","v":true,"s":false},{"n":"Vegetable Chop Suey","p":16.5,"d":"Stir-fried mixed vegetables in a savory sauce.","v":true,"s":false},{"n":"Sauté Mixed Vegetables","p":16.5,"d":"Stir-fried assortment of mixed vegetables.","v":true,"s":false},{"n":"Mixed Vegetables with Szechuan Sauce","p":14.5,"d":"Spicy.","v":true,"s":true},{"n":"Sauté Broccoli","p":16.5,"d":"Broccoli sautéed until tender-crisp.","v":true,"s":false},{"n":"Broccoli with Black Mushroom","p":16.99,"d":"Tender broccoli and black mushrooms stir-fried in a savory sauce.","v":true,"s":false},{"n":"Tofu with Green Beans","p":16.5,"d":"Tender tofu paired with crisp green beans.","v":true,"s":false},{"n":"Salt and Pepper Crispy Tofu","p":16.5,"d":"Spicy.","v":true,"s":true},{"n":"Kung Pao Tofu","p":16.5,"d":"Spicy.","v":true,"s":true},{"n":"Snow Peas, Mushroom & Black Mushroom","p":17.99,"d":"Crisp snow peas paired with mushrooms and black mushrooms.","v":true,"s":false},{"n":"Mongolian Baked Tofu","p":17.99,"d":"Tofu baked in a savory Mongolian style.","v":true,"s":false},{"n":"Baked Tofu with Chinese Green","p":17.99,"d":"Tofu baked with Chinese green vegetables.","v":true,"s":false},{"n":"Baked Tofu with Green Beans","p":17.99,"d":"Tofu and green beans baked to perfection.","v":true,"s":false},{"n":"Mixed Vegetables with Curry Sauce","p":14.5,"d":"Spicy.","v":true,"s":true},{"n":"Eggplant with Sweet Bean Sauce","p":16.5,"d":"Tender eggplant in a sweet and savory bean sauce.","v":true,"s":false},{"n":"Family Style Tofu","p":16.5,"d":"Spicy.","v":true,"s":true},{"n":"Tofu & Vegetables with Curry Sauce","p":16.5,"d":"Spicy.","v":true,"s":true},{"n":"Tofu & Eggplant with Brazilian Hot Pot","p":17.99,"d":"Tofu and eggplant in a spicy Brazilian-inspired hot pot.","v":true,"s":true},{"n":"Baked Tofu with Mixed Vegetables","p":17.99,"d":"Tofu baked with a variety of mixed vegetables.","v":true,"s":false},{"n":"Baked Tofu with Snow Peas","p":17.99,"d":"Tofu baked with snow peas, a delicate and healthy option.","v":true,"s":false},{"n":"Pan fried green beans干煸四季豆","p":17.5,"d":"Pan-fried green beans in the dry-fried style, tender-crisp.","v":true,"s":false}]},{"id":"pork","name":"Pork","cn":"猪肉","items":[{"n":"Twice cooked pork belly with leaks (蒜苗回锅肉","p":21.99,"d":"Tender pork belly cooked twice with fresh leeks for a savory, aromatic delight.","v":false,"s":false},{"n":"Sweet and Sour Pork","p":17.99,"d":"Tender pork in a tangy sweet and sour sauce.","v":false,"s":false},{"n":"Pork Chow Mein","p":15.5,"d":"Stir-fried noodles with pork and vegetables.","v":false,"s":false},{"n":"Pork with Szechuan Sauce","p":17.99,"d":"Tender pork in a spicy Szechuan sauce.","v":false,"s":true},{"n":"Garlic Pork","p":17.99,"d":"Tender pork infused with garlic.","v":false,"s":false},{"n":"Cabbage Pork","p":17.99,"d":"Sweet bean sauce.","v":false,"s":false},{"n":"Pork with Green Beans","p":17.99,"d":"Tender pork paired with crisp green beans.","v":false,"s":false},{"n":"Pork Egg Foo Young","p":17.99,"d":"Omelette-like dish made with eggs and pork.","v":false,"s":false},{"n":"Pork Chow Fun","p":16.5,"d":"Stir-fried pork with noodles, a classic Cantonese dish.","v":false,"s":false},{"n":"Pork with Broccoli","p":17.99,"d":"Tender pork paired with steamed broccoli.","v":false,"s":false},{"n":"Pork with Mixed Vegetables","p":17.99,"d":"Tender pork paired with a variety of mixed vegetables.","v":false,"s":false},{"n":"Pork Chop Suey","p":17.99,"d":"Stir-fried pork with vegetables in a savory sauce.","v":false,"s":false}]},{"id":"chicken","name":"Chicken","cn":"鸡肉","items":[{"n":"Orange Flavor Chicken","p":17.99,"d":"Spicy.","v":false,"s":true},{"n":"Kung Pao Chicken","p":17.99,"d":"Spicy.","v":false,"s":true},{"n":"Chicken Chow Mein","p":15.5,"d":"Stir-fried noodles with chicken and vegetables.","v":false,"s":false},{"n":"Sweet and Sour Chicken","p":17.99,"d":"Tender chicken in a tangy sweet and sour sauce.","v":false,"s":false},{"n":"Chicken with Cashew Nuts","p":17.99,"d":"Tender chicken paired with crunchy cashew nuts.","v":false,"s":false},{"n":"Lemon Chicken","p":17.99,"d":"Tender chicken infused with a zesty lemon flavor.","v":false,"s":false},{"n":"Sesame Chicken","p":17.99,"d":"Crispy chicken tossed in a savory sesame sauce.","v":false,"s":false},{"n":"Chicken Egg Foo Young","p":16.99,"d":"Omelette-like dish made with chicken and eggs.","v":false,"s":false},{"n":"Chicken with Black Bean Sauce","p":17.99,"d":"Spicy.","v":false,"s":true},{"n":"Chicken with Szechuan Sauce","p":17.99,"d":"Spicy.","v":false,"s":true},{"n":"Curry Chicken","p":17.99,"d":"Spicy.","v":false,"s":true},{"n":"Chicken with Broccoli","p":17.99,"d":"Tender chicken paired with steamed broccoli.","v":false,"s":false},{"n":"Chicken with Mixed Vegetables","p":17.99,"d":"Tender chicken paired with a variety of mixed vegetables.","v":false,"s":false},{"n":"Sweet & Pungent Chicken","p":17.99,"d":"Spicy.","v":false,"s":true},{"n":"Chicken Chop Suey","p":16.99,"d":"Stir-fried chicken with vegetables in a savory sauce.","v":false,"s":false},{"n":"Chicken Chow Fun","p":16.5,"d":"Stir-fried noodles with chicken and vegetables.","v":false,"s":false},{"n":"Almond Chicken","p":17.99,"d":"Tender chicken cooked with almonds.","v":false,"s":false},{"n":"Chicken with Green Beans","p":17.99,"d":"Tender chicken paired with crisp green beans.","v":false,"s":false},{"n":"Chicken with Chinese Green","p":17.99,"d":"Chicken dish featuring Chinese green.","v":false,"s":false},{"n":"Chicken with Snow Peas","p":17.99,"d":"Tender chicken paired with crisp snow peas.","v":false,"s":false},{"n":"Salt and Pepper Crispy Chicken","p":17.99,"d":"Spicy.","v":false,"s":true}]},{"id":"beef","name":"Beef","cn":"牛肉","items":[{"n":"Beef with Green Beans","p":24.99,"d":"Tender beef paired with crisp green beans.","v":false,"s":false},{"n":"Beef with Broccoli","p":24.99,"d":"Tender beef and broccoli, a classic combination.","v":false,"s":false},{"n":"Beef Chow Mein","p":16.5,"d":"Stir-fried noodles with beef and vegetables.","v":false,"s":false},{"n":"Kung Pao Beef","p":24.99,"d":"Spicy.","v":false,"s":true},{"n":"Mongolian Beef","p":24.99,"d":"Spicy.","v":false,"s":true},{"n":"Beef with Chinese Green","p":21.99,"d":"Tender beef paired with Chinese green.","v":false,"s":false},{"n":"Beef Chow Fun","p":17.5,"d":"Stir-fried flat rice noodles with beef and vegetables.","v":false,"s":false},{"n":"Beef Chop Suey","p":24.99,"d":"Stir-fried beef with vegetables in a savory sauce.","v":false,"s":false},{"n":"Curry Beef","p":24.99,"d":"Spicy.","v":false,"s":true},{"n":"Beef with Snow Peas","p":24.99,"d":"Tender beef paired with crisp snow peas.","v":false,"s":false},{"n":"Beef Egg Foo Young","p":24.99,"d":"Omelette-like dish made with beef and eggs.","v":false,"s":false},{"n":"Beef with Szechuan Sauce","p":24.99,"d":"Spicy.","v":false,"s":true},{"n":"Beef with Black Bean Sauce","p":24.99,"d":"Spicy.","v":false,"s":true},{"n":"Beef with Mixed Vegetables","p":24.99,"d":"Tender beef paired with a variety of mixed vegetables.","v":false,"s":false}]},{"id":"combo","name":"Combination","cn":"三鲜","items":[{"n":"Kung Pao Three Delight","p":21.99,"d":"Includes chicken, beef, and shrimp.","v":false,"s":true},{"n":"Combination Chow Fun","p":17.99,"d":"Includes chicken, beef, and shrimp.","v":false,"s":false},{"n":"Combination Chop Suey","p":21.99,"d":"Includes chicken, beef, and shrimp.","v":false,"s":false},{"n":"Combination Chow Mein","p":16.99,"d":"Includes chicken, beef, and shrimp.","v":false,"s":false},{"n":"Curry Three Delight","p":21.99,"d":"Includes chicken, beef, and shrimp.","v":false,"s":false},{"n":"Combination Egg Foo Young","p":21.99,"d":"Includes chicken, beef, and shrimp.","v":false,"s":false},{"n":"Imperial Three Delight","p":19.99,"d":"Includes chicken, beef, and shrimp.","v":false,"s":false},{"n":"Szechuan Three Delight","p":21.99,"d":"Includes chicken, beef, and shrimp.","v":false,"s":true}]},{"id":"seafood","name":"Seafood","cn":"海鲜","items":[{"n":"Sweet and Sour Shrimp","p":22.99,"d":"Shrimp in a tangy sweet and sour sauce.","v":false,"s":false},{"n":"Shrimp Chow Mein","p":17.99,"d":"Stir-fried noodles with shrimp and vegetables.","v":false,"s":false},{"n":"Shrimp Egg Foo Young","p":22.99,"d":"Shrimp and egg in a savory omelette-style dish.","v":false,"s":false},{"n":"Shrimp with Lobster Sauce","p":22.99,"d":"Succulent shrimp smothered in a rich lobster sauce.","v":false,"s":false},{"n":"Kung Pao Shrimp","p":22.99,"d":"Spicy Sichuan-style shrimp dish with peanuts and vegetables.","v":false,"s":true},{"n":"Shrimp with Szechuan Sauce","p":22.99,"d":"Savory shrimp dish smothered in a spicy Szechuan sauce.","v":false,"s":true},{"n":"Shrimp with Black Bean Sauce","p":22.99,"d":"Succulent shrimp in a savory black bean sauce.","v":false,"s":false},{"n":"Shrimp with Green Beans","p":22.99,"d":"Shrimp paired with crisp green beans.","v":false,"s":false},{"n":"Salt and Pepper Shrimp","p":22.99,"d":"Succulent shrimp seasoned with salt and pepper.","v":false,"s":false},{"n":"Shrimp Chow Fun","p":18.5,"d":"Stir-fried shrimp with rice noodles.","v":false,"s":false},{"n":"Shrimp with Broccoli","p":22.99,"d":"Tender shrimp paired with steamed broccoli.","v":false,"s":false},{"n":"Shrimp with Mixed Vegetables","p":22.99,"d":"Succulent shrimp paired with a colorful mix of vegetables.","v":false,"s":false},{"n":"Shrimp with Cashew Nuts","p":22.99,"d":"Succulent shrimp paired with crunchy cashew nuts.","v":false,"s":false},{"n":"Curry Shrimp","p":22.99,"d":"Succulent shrimp in a rich and flavorful curry sauce.","v":false,"s":false},{"n":"Shrimp with Chinese Green","p":22.99,"d":"Shrimp dish featuring Chinese green.","v":false,"s":false},{"n":"Shrimp with Snow Peas","p":22.99,"d":"Succulent shrimp paired with crisp snow peas.","v":false,"s":false},{"n":"Sesame Shrimp","p":22.99,"d":"Succulent shrimp tossed in a savory sesame sauce.","v":false,"s":false}]},{"id":"rice","name":"Rice","cn":"米饭","items":[{"n":"Fried Rice with Protein","p":13.5,"d":"Savory rice dish with protein.","v":false,"s":false},{"n":"Steamed Rice (8 oz)","p":2.0,"d":"Freshly steamed white rice served in an 8 oz portion.","v":false,"s":false},{"n":"Plain Fried Rice (8 oz)","p":2.0,"d":"Stir-fried rice, lightly seasoned. 8 oz portion.","v":false,"s":false},{"n":"Curry Fried Rice","p":12.5,"d":"Savory rice dish flavored with curry.","v":false,"s":false}]},{"id":"drinks","name":"Drinks & Tea","cn":"饮品","items":[{"n":"Coke","p":2.95,"d":"","v":false,"s":false},{"n":"Diet Coke","p":2.95,"d":"","v":false,"s":false},{"n":"Sprite","p":2.95,"d":"","v":false,"s":false},{"n":"Passion Fruit Green Tea","p":5.99,"d":"Refreshing green tea infused with sweet passion fruit flavor.","v":false,"s":false},{"n":"Mango Fruit Green Tea","p":5.99,"d":"Sweet and refreshing green tea infused with mango fruit flavor.","v":false,"s":false},{"n":"Peach Fruit Green Tea","p":5.99,"d":"Sweet and refreshing green tea infused with peach flavor.","v":false,"s":false},{"n":"Brown sugar BoBa Milk Tea","p":6.99,"d":"Milk tea blended with brown sugar syrup and chewy boba pearls.","v":false,"s":false}]},{"id":"extras","name":"Sauces & Extras","cn":"小料","items":[{"n":"Extra Pan Cake","p":1.0,"d":"Thin, delicate pancake served with Mu Shu dishes.","v":false,"s":false},{"n":"Sweet & Sour Sauce","p":0.5,"d":"Tangy and sweet condiment to enhance your meal.","v":false,"s":false},{"n":"Chili Sauce","p":0.5,"d":"Spicy condiment to add flavor to your dish.","v":false,"s":false},{"n":"Hoisin Sauce","p":0.5,"d":"Sweet and savory sauce for your dishes.","v":false,"s":false},{"n":"Hot Mustard","p":0.5,"d":"Spicy condiment adding flavor to your dish.","v":false,"s":false},{"n":"Potsticker Sauce","p":0.5,"d":"Savory dipping sauce for your potstickers.","v":false,"s":false}]}];
+
+/* ---------- hours ---------- */
+const HOURS = [
+  {d:"Sunday",    r:[[16*60, 20*60+30]]},
+  {d:"Monday",    r:[[11*60+30, 14*60+30],[16*60+30, 20*60+30]]},
+  {d:"Tuesday",   r:[]},
+  {d:"Wednesday", r:[[11*60+30, 14*60+30],[16*60+30, 20*60+30]]},
+  {d:"Thursday",  r:[[11*60+30, 14*60+30],[16*60+30, 20*60+30]]},
+  {d:"Friday",    r:[[11*60+30, 14*60+30],[16*60+30, 20*60+30]]},
+  {d:"Saturday",  r:[[11*60+30, 14*60+30],[16*60+30, 20*60+30]]}
+];
+function fmt(m){
+  let h = Math.floor(m/60), mm = String(m%60).padStart(2,"0");
+  const ap = h >= 12 ? "pm" : "am";
+  h = h % 12; if(h === 0) h = 12;
+  return h + ":" + mm + " " + ap;
+}
+function laNow(){
+  const p = new Intl.DateTimeFormat("en-US",{timeZone:"America/Los_Angeles",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
+  const g = t => p.find(x => x.type === t).value;
+  const map = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  return {day: map[g("weekday")], mins: (parseInt(g("hour"),10) % 24) * 60 + parseInt(g("minute"),10)};
+}
+function renderHours(){
+  const now = laNow();
+  const tb = document.getElementById("hoursTable");
+  tb.innerHTML = HOURS.map((h,i) => {
+    const txt = h.r.length ? h.r.map(x => fmt(x[0]) + " – " + fmt(x[1])).join("<br>") : "Closed";
+    const cls = (i === now.day ? "today " : "") + (h.r.length ? "" : "shut");
+    return `<tr class="${cls.trim()}"><td>${h.d}</td><td>${txt}</td></tr>`;
+  }).join("");
+
+  const today = HOURS[now.day];
+  let open = false, nextOpen = null;
+  for(const [a,b] of today.r){
+    if(now.mins >= a && now.mins < b){ open = true; }
+    if(now.mins < a && nextOpen === null){ nextOpen = a; }
+  }
+  const dot = document.getElementById("statusDot"), txt = document.getElementById("statusText");
+  if(open){
+    dot.className = "dot on";
+    const closing = today.r.find(([a,b]) => now.mins >= a && now.mins < b)[1];
+    txt.textContent = "Open until " + fmt(closing);
+  } else {
+    dot.className = "dot off";
+    if(nextOpen !== null){ txt.textContent = "Opens " + fmt(nextOpen); }
+    else {
+      let i = 1;
+      while(i < 8 && HOURS[(now.day + i) % 7].r.length === 0) i++;
+      const nd = HOURS[(now.day + i) % 7];
+      txt.textContent = (i === 1 ? "Opens tomorrow " : "Opens " + nd.d + " ") + fmt(nd.r[0][0]);
+    }
+  }
+}
+
+/* ---------- menu ---------- */
+let activeTab = "all", vegOnly = false, spicyOnly = false, query = "";
+const out = document.getElementById("menuOut");
+const tabsEl = document.getElementById("tabs");
+
+function buildTabs(){
+  const list = [{id:"all",name:"Everything"}].concat(MENU.map(s => ({id:s.id,name:s.name})));
+  tabsEl.innerHTML = list.map(t =>
+    `<button class="tab" role="tab" data-id="${t.id}" aria-selected="${t.id === activeTab}">${t.name}</button>`
+  ).join("");
+  tabsEl.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+    activeTab = b.dataset.id;
+    tabsEl.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x === b));
+    render();
+  }));
+}
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function render(){
+  const q = query.trim().toLowerCase();
+  let shown = 0;
+  const html = MENU.filter(s => activeTab === "all" || s.id === activeTab).map(sec => {
+    const items = sec.items.filter(it => {
+      if(vegOnly && !it.v) return false;
+      if(spicyOnly && !it.s) return false;
+      if(q && !(it.n.toLowerCase().includes(q) || (it.d || "").toLowerCase().includes(q))) return false;
+      return true;
+    });
+    if(!items.length) return "";
+    shown += items.length;
+    return `<div class="mgroup" id="sec-${sec.id}">
+      <h3>${esc(sec.name)} <i>${esc(sec.cn)}</i></h3>
+      <div class="hr"></div>
+      <div class="mlist">${items.map(it => `
+        <div class="mi">
+          <div>
+            <span class="nm">${esc(it.n)}${it.v ? '<span class="mk v">VEG</span>' : ""}${it.s ? '<span class="mk s">SPICY</span>' : ""}</span>
+            ${it.d ? `<span class="ds">${esc(it.d)}</span>` : ""}
+          </div>
+          <span class="leader"></span>
+          <span class="pp">$${it.p.toFixed(2)}</span>
+        </div>`).join("")}</div>
+    </div>`;
+  }).join("");
+  out.innerHTML = html || `<p class="empty">No dishes match that. Try clearing the filters, or call us at (805) 962-7833 and ask.</p>`;
+}
+
+document.getElementById("q").addEventListener("input", e => { query = e.target.value; render(); });
+document.getElementById("fVeg").addEventListener("click", e => {
+  vegOnly = !vegOnly; e.currentTarget.setAttribute("aria-pressed", vegOnly); render();
+});
+document.getElementById("fSpy").addEventListener("click", e => {
+  spicyOnly = !spicyOnly; e.currentTarget.setAttribute("aria-pressed", spicyOnly); render();
+});
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+buildTabs();
+render();
+renderHours();
+setInterval(renderHours, 60000);
+</script>
+</body>
+</html>
